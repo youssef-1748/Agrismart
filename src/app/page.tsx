@@ -104,26 +104,50 @@ export default function Home() {
 
   return (
     <main className="min-h-screen bg-gray-50 p-6 relative">
-      <div className="max-w-6xl mx-auto space-y-6">
+      
+      {/* Boutons Connexion / Inscription en haut à droite */}
+      <div className="absolute top-4 right-4 z-50 flex gap-3">
+        <a 
+          href="/login" 
+          className="bg-white text-green-700 px-4 py-2 rounded-lg font-semibold shadow hover:bg-gray-100 transition border border-green-200"
+        >
+          Connexion
+        </a>
+        <a 
+          href="/signup" 
+          className="bg-green-700 text-white px-4 py-2 rounded-lg font-semibold shadow hover:bg-green-800 transition"
+        >
+          Inscription
+        </a>
+      </div>
+
+      <div className="max-w-6xl mx-auto space-y-6 pt-12 md:pt-0">
         
-        {/* En-tête */}
-        <div className="bg-white p-6 rounded-xl shadow-md border border-green-100 flex justify-between items-center">
-          <div>
-            <h1 className="text-3xl font-bold text-green-800">🌾 AgriSmart Maroc</h1>
-            <p className="text-gray-600">Plateforme intelligente d'optimisation de l'irrigation et suivi des parcelles</p>
+        {/* En-tête avec Logo et Version */}
+        <div className="bg-white p-6 rounded-xl shadow-md border border-green-100 flex flex-col md:flex-row justify-between items-center gap-4">
+          <div className="flex items-center space-x-4">
+            <img 
+              src="/logo.png" 
+              alt="AgriSmart Maroc Logo" 
+              className="w-14 h-14 object-contain rounded-xl shadow-sm border border-green-100 bg-green-50/50 p-1" 
+            />
+            <div>
+              <h1 className="text-3xl font-bold text-green-800">AgriSmart Maroc</h1>
+              <p className="text-gray-600 text-sm md:text-base">Plateforme intelligente d'optimisation de l'irrigation et suivi des parcelles</p>
+            </div>
           </div>
-          <div className="bg-green-50 text-green-700 px-4 py-2 rounded-lg font-semibold border border-green-200">
+          <div className="bg-green-50 text-green-700 px-4 py-2 rounded-lg font-semibold border border-green-200 text-sm">
             Version Turbo (MVP)
           </div>
         </div>
 
         {/* Sélection du type de culture */}
-        <div className="bg-white p-4 rounded-xl shadow-md flex items-center space-x-4">
+        <div className="bg-white p-4 rounded-xl shadow-md flex flex-col sm:flex-row items-start sm:items-center space-y-2 sm:space-y-0 sm:space-x-4">
           <label className="font-semibold text-gray-700">Type de culture :</label>
           <select 
             value={cropType} 
             onChange={(e) => setCropType(e.target.value as any)}
-            className="border border-gray-300 rounded-lg p-2 bg-white text-gray-800 focus:outline-none focus:ring-2 focus:ring-green-500"
+            className="border border-gray-300 rounded-lg p-2 bg-white text-gray-800 focus:outline-none focus:ring-2 focus:ring-green-500 w-full sm:w-auto"
           >
             <option value="cereales">Céréales (Blé, Orge...)</option>
             <option value="maraichage">Maraîchage (Tomates, Légumes...)</option>
@@ -190,20 +214,7 @@ export default function Home() {
         )}
 
       </div>
-      <div className="absolute top-4 right-4 z-50 flex gap-3">
-  <a 
-    href="/login" 
-    className="bg-white text-green-700 px-4 py-2 rounded-lg font-semibold shadow hover:bg-gray-100 transition"
-  >
-    Connexion
-  </a>
-  <a 
-    href="/signup" 
-    className="bg-green-700 text-white px-4 py-2 rounded-lg font-semibold shadow hover:bg-green-800 transition"
-  >
-    Inscription
-  </a>
-</div>
+
       {/* Assistant Chatbot Flottant */}
       <ChatAssistant />
     </main>
