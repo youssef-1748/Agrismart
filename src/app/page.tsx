@@ -190,7 +190,20 @@ export default function Home() {
         )}
 
       </div>
-
+      <div className="absolute top-4 right-4 z-50 flex gap-3">
+  <a 
+    href="/login" 
+    className="bg-white text-green-700 px-4 py-2 rounded-lg font-semibold shadow hover:bg-gray-100 transition"
+  >
+    Connexion
+  </a>
+  <a 
+    href="/signup" 
+    className="bg-green-700 text-white px-4 py-2 rounded-lg font-semibold shadow hover:bg-green-800 transition"
+  >
+    Inscription
+  </a>
+</div>
       {/* Assistant Chatbot Flottant */}
       <ChatAssistant />
     </main>
